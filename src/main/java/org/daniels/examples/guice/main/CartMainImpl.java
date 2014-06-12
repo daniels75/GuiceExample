@@ -8,29 +8,34 @@ import org.daniels.examples.guice.modules.SimpleGuiceModule;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.name.Named;
 
 public class CartMainImpl implements CartMain {
-    
+
     private final transient Log log = LogFactory.getLog(CartMainImpl.class);
-    
+
     CreditCart creditCart;
-    
+
     @Inject
-    public CartMainImpl(final CreditCart creditCart){
+    public CartMainImpl(@Named("Fake") final CreditCart creditCart) {
         this.creditCart = creditCart;
     }
-    
+
     public static void main(String[] args) {
         Injector injector = Guice.createInjector(new SimpleGuiceModule());
+
+        CartMainImpl cartMainImpl = injector.getInstance(CartMainImpl.class);
+
+        cartMainImpl.testBind();
+        cartMainImpl.getMessageFromCredit();
         
-        CartMainImpl main = injector.getInstance(CartMainImpl.class);
-        
-        main.testBind();
+    }
+
+    public void testBind() {
+        log.info("testBind");
     }
     
-    public void testBind(){
-        log.info("testBind");
-        
-
+    public void getMessageFromCredit(){
+        log.info(creditCart.getMessage());
     }
 }
