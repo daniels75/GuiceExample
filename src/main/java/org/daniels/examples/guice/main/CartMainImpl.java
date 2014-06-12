@@ -12,7 +12,7 @@ import com.google.inject.name.Named;
 
 public class CartMainImpl implements CartMain {
 
-    private final transient Log log = LogFactory.getLog(CartMainImpl.class);
+    private final transient Log logger = LogFactory.getLog(CartMainImpl.class);
 
     CreditCart creditCart;
 
@@ -32,10 +32,10 @@ public class CartMainImpl implements CartMain {
     }
 
     public void testBind() {
-        log.info("testBind");
+    	logger.info("testBind");
     }
     
     public void getMessageFromCredit(){
-        log.info(creditCart.getMessage());
+    	logger.info(creditCart.getMessage());
     }
 }
