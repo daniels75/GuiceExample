@@ -1,4 +1,4 @@
-package org.daniels.samples;
+package org.daniels.examples;
 
 
 
