@@ -10,21 +10,21 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.name.Named;
 
-public class CartMainImpl implements CartMain {
+public class GuiceCartMainImpl implements GuiceCartMain {
 
-    private final transient Log logger = LogFactory.getLog(CartMainImpl.class);
+    private final transient Log logger = LogFactory.getLog(GuiceCartMainImpl.class);
 
     CreditCart creditCart;
 
     @Inject
-    public CartMainImpl(@Named("Fake") final CreditCart creditCart) {
+    public GuiceCartMainImpl(@Named("Fake") final CreditCart creditCart) {
         this.creditCart = creditCart;
     }
 
     public static void main(String[] args) {
         Injector injector = Guice.createInjector(new SimpleGuiceModule());
 
-        CartMainImpl cartMainImpl = injector.getInstance(CartMainImpl.class);
+        GuiceCartMainImpl cartMainImpl = injector.getInstance(GuiceCartMainImpl.class);
 
         cartMainImpl.testBind();
         cartMainImpl.getMessageFromCredit();

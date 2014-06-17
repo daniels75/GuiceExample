@@ -2,7 +2,7 @@ package org.daniels.examples.spring.main;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.daniels.examples.guice.main.CartMainImpl;
+import org.daniels.examples.guice.main.GuiceCartMainImpl;
 import org.daniels.examples.guice.modules.SpringModule;
 import org.daniels.examples.guice.modules.SpringModuleWorks;
 import org.daniels.examples.spring.loan.Loan;
